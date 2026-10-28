@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Chiến Cơ Huyền Thoại</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="game-container">
+  <div id="ui-layer">
+    <div class="hud-row">
+      <div class="stat">Điểm <b id="score">0</b></div>
+      <div class="stat">Đợt <b id="wave">1</b></div>
+      <div class="stat coin">◉ <b id="coins">0</b></div>
+    </div>
+    <div class="hp-wrap"><div id="hpbar"></div><span id="hp">100</span></div>
+  </div>
+  <canvas id="gameCanvas" width="480" height="640"></canvas>
+  <div id="inv"></div>
+  <button id="pause-btn" aria-label="Tạm dừng">❚❚</button>
+  <button id="nuke-btn" aria-label="Bom nguyên tử"><span>☢</span><small id="nuke-cost"></small></button>
+  <div id="buffs"></div>
+  <div id="toast"></div>
+
+  <div id="menu-screen" class="overlay">
+    <h1>CHIẾN CƠ<br>HUYỀN THOẠI</h1>
+    <p>Di chuyển: chuột, WASD / mũi tên hoặc kéo ngón tay<br>Dùng đồ: 1 Cứu thương · 2 Khiên · 3 hoặc Space Bom · N Bom nguyên tử · P Tạm dừng</p>
+    <div class="diff-pick"><button data-diff="easy">Dễ</button><button data-diff="normal">Thường</button><button data-diff="hard">Khó</button></div>
+    <p class="diff-desc"></p>
+    <button id="start-btn">Bắt đầu chiến đấu</button>
+    <button class="alt open-hangar">Chọn chiến cơ</button>
+    <button class="alt open-shop">Cửa hàng</button>
+  </div>
+
+  <div id="shop-screen" class="overlay hidden">
+    <h2>Cửa hàng</h2>
+    <div class="shop-coins">◉ <b id="shop-coins">0</b> xu</div>
+    <div id="shop-list"></div>
+    <button id="close-shop" class="alt">Quay lại</button>
+  </div>
+
+  <div id="hangar-screen" class="overlay hidden">
+    <h2>Chọn chiến cơ</h2>
+    <div class="shop-coins">◉ <b id="hg-coins">0</b> xu</div>
+    <div class="hg-row">
+      <button id="hg-prev" class="alt arrow" aria-label="Chiến cơ trước">‹</button>
+      <canvas id="hangar-canvas" width="200" height="230"></canvas>
+      <button id="hg-next" class="alt arrow" aria-label="Chiến cơ sau">›</button>
+    </div>
+    <div id="hg-dots"></div>
+    <h3 id="hg-name"></h3>
+    <p id="hg-desc"></p>
+    <p id="hg-stat"></p>
+    <button id="hg-action">Chọn chiến cơ</button>
+    <button id="hg-back" class="alt">Quay lại</button>
+  </div>
+
+  <div id="gameover-screen" class="overlay hidden">
+    <h1>BỊ HẠ GỤC</h1>
+    <p>Điểm: <b id="final-score">0</b> · Xu nhặt được: <b id="final-coins">0</b></p>
+    <div class="diff-pick"><button data-diff="easy">Dễ</button><button data-diff="normal">Thường</button><button data-diff="hard">Khó</button></div>
+    <p class="diff-desc"></p>
+    <button id="restart-btn">Chơi lại</button>
+    <button class="alt open-hangar">Chọn chiến cơ</button>
+    <button class="alt open-shop">Cửa hàng</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
